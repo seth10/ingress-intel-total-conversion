@@ -396,11 +396,11 @@ window.plugin.uniques.highlighter = {
 			if (data.portal.options.data.team !== window.PLAYER.team.charAt(0)) {
 				// the portal is available to capture (if it's currently owned by someone on your same team then you can't capture it (see else statement), 
 				// but if it's owned by the other faction you can destroy it first to make it neutral and then capture it yourself)
-				style.fillColor = 'magenta';
-				style.fillOpacity = 0.9;
+				style.fillColor = '#EB30EB';
+				style.fillOpacity = 1;
 			} else {
-				style.fillColor = 'red';
-				style.fillOpacity = 0.5;
+				style.fillColor = '#911408';
+				style.fillOpacity = 1;
 			}
 
 		}

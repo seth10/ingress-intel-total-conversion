@@ -388,23 +388,21 @@ window.plugin.uniques.highlighter = {
 
 		var style = {};
 
-		if (uniqueInfo) {
-			if (uniqueInfo.captured) {
-				// captured (and, implied, visited too) - no highlights
+		window.COLORS[0] = 'white'; // make neutral portals white
 
-			} else if (uniqueInfo.visited) {
-				style.fillColor = 'yellow';
-				style.fillOpacity = 0.6;
+		if (!(uniqueInfo && uniqueInfo.captured)) {
+			// this portal hasn't been captured yet
+
+			if (data.portal.options.data.team !== window.PLAYER.team.charAt(0)) {
+				// the portal is available to capture (if it's currently owned by someone on your same team then you can't capture it (see else statement), 
+				// but if it's owned by the other faction you can destroy it first to make it neutral and then capture it yourself)
+				style.fillColor = 'magenta';
+				style.fillOpacity = 0.9;
 			} else {
-				// we have an 'uniqueInfo' entry for the portal, but it's not set visited or captured?
-				// could be used to flag a portal you don't plan to visit, so use a less opaque red
 				style.fillColor = 'red';
 				style.fillOpacity = 0.5;
 			}
-		} else {
-			// no visit data at all
-			style.fillColor = 'red';
-			style.fillOpacity = 0.7;
+
 		}
 
 		data.portal.setStyle(style);

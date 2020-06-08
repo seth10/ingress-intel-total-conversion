@@ -388,8 +388,6 @@ window.plugin.uniques.highlighter = {
 
 		var style = {};
 
-		window.COLORS[0] = 'white'; // make neutral portals white
-
 		if (!(uniqueInfo && uniqueInfo.captured)) {
 			// this portal hasn't been captured yet
 
@@ -410,6 +408,13 @@ window.plugin.uniques.highlighter = {
 
 	setSelected: function(active) {
 		window.plugin.uniques.isHighlightActive = active;
+		if (active) {
+			// when this highligher is active, make neutral portals white
+			window.COLORS[0] = 'white';
+		} else {
+			// reset neutral portals to their original orange color when this highlighter is no longer active
+			window.COLORS[0] = '#FF6600';
+		}
 	}
 }
 

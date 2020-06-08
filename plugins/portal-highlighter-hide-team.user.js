@@ -26,10 +26,7 @@
 window.plugin.portalHighlighterHideOwnership = function() {};
 
 window.plugin.portalHighlighterHideOwnership.highlight = function(data) {
-  var scale = window.portalMarkerScale();
-
-  var params = getMarkerStyleOptions({team: TEAM_NONE, level: 0});
-  data.portal.setStyle(params);
+  data.portal.setStyle({color: 'white', fillColor: 'white'});
 }
 
 var setup =  function() {
